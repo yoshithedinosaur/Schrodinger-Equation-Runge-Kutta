@@ -17,6 +17,13 @@
 		A3FA431027C96D6200ADDF0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA42E627C96D5C00ADDF0F /* ContentView.swift */; };
 		A3FA431127C96D6200ADDF0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FA42E727C96D6200ADDF0F /* Assets.xcassets */; };
 		A3FA431227C96D6200ADDF0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FA42E727C96D6200ADDF0F /* Assets.xcassets */; };
+		A3FA432227C96D9E00ADDF0F /* Potential Wells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA432127C96D9E00ADDF0F /* Potential Wells.swift */; };
+		A3FA432327C96D9E00ADDF0F /* Potential Wells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA432127C96D9E00ADDF0F /* Potential Wells.swift */; };
+		A3FA432527C96E6300ADDF0F /* Runge Kutta.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA432427C96E6300ADDF0F /* Runge Kutta.swift */; };
+		A3FA432627C96E6300ADDF0F /* Runge Kutta.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA432427C96E6300ADDF0F /* Runge Kutta.swift */; };
+		A3FA432827C9732D00ADDF0F /* 1D Schrodinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA432727C9732D00ADDF0F /* 1D Schrodinger.swift */; };
+		A3FA432927C9732D00ADDF0F /* 1D Schrodinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA432727C9732D00ADDF0F /* 1D Schrodinger.swift */; };
+		A3FA432C27C98B8500ADDF0F /* CorePlot in Frameworks */ = {isa = PBXBuildFile; productRef = A3FA432B27C98B8500ADDF0F /* CorePlot */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,9 @@
 		A3FA430527C96D6200ADDF0F /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3FA430927C96D6200ADDF0F /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		A3FA430B27C96D6200ADDF0F /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		A3FA432127C96D9E00ADDF0F /* Potential Wells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Potential Wells.swift"; sourceTree = "<group>"; };
+		A3FA432427C96E6300ADDF0F /* Runge Kutta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Runge Kutta.swift"; sourceTree = "<group>"; };
+		A3FA432727C9732D00ADDF0F /* 1D Schrodinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "1D Schrodinger.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3FA432C27C98B8500ADDF0F /* CorePlot in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +110,9 @@
 			children = (
 				A3FA42E527C96D5C00ADDF0F /* Schrodinger_Equation_Runge_KuttaApp.swift */,
 				A3FA42E627C96D5C00ADDF0F /* ContentView.swift */,
+				A3FA432127C96D9E00ADDF0F /* Potential Wells.swift */,
+				A3FA432427C96E6300ADDF0F /* Runge Kutta.swift */,
+				A3FA432727C9732D00ADDF0F /* 1D Schrodinger.swift */,
 				A3FA42E727C96D6200ADDF0F /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -157,6 +171,9 @@
 			dependencies = (
 			);
 			name = "Schrodinger Equation Runge Kutta (iOS)";
+			packageProductDependencies = (
+				A3FA432B27C98B8500ADDF0F /* CorePlot */,
+			);
 			productName = "Schrodinger Equation Runge Kutta (iOS)";
 			productReference = A3FA42EC27C96D6200ADDF0F /* Schrodinger Equation Runge Kutta.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +266,9 @@
 				Base,
 			);
 			mainGroup = A3FA42DF27C96D5B00ADDF0F;
+			packageReferences = (
+				A3FA432A27C98B8500ADDF0F /* XCRemoteSwiftPackageReference "core-plot" */,
+			);
 			productRefGroup = A3FA42ED27C96D6200ADDF0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -299,7 +319,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3FA432227C96D9E00ADDF0F /* Potential Wells.swift in Sources */,
+				A3FA432827C9732D00ADDF0F /* 1D Schrodinger.swift in Sources */,
 				A3FA430F27C96D6200ADDF0F /* ContentView.swift in Sources */,
+				A3FA432527C96E6300ADDF0F /* Runge Kutta.swift in Sources */,
 				A3FA430D27C96D6200ADDF0F /* Schrodinger_Equation_Runge_KuttaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +331,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3FA432327C96D9E00ADDF0F /* Potential Wells.swift in Sources */,
+				A3FA432927C9732D00ADDF0F /* 1D Schrodinger.swift in Sources */,
 				A3FA431027C96D6200ADDF0F /* ContentView.swift in Sources */,
+				A3FA432627C96E6300ADDF0F /* Runge Kutta.swift in Sources */,
 				A3FA430E27C96D6200ADDF0F /* Schrodinger_Equation_Runge_KuttaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -703,6 +729,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A3FA432A27C98B8500ADDF0F /* XCRemoteSwiftPackageReference "core-plot" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/core-plot/core-plot.git";
+			requirement = {
+				branch = "release-2.4";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A3FA432B27C98B8500ADDF0F /* CorePlot */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3FA432A27C98B8500ADDF0F /* XCRemoteSwiftPackageReference "core-plot" */;
+			productName = CorePlot;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A3FA42E027C96D5B00ADDF0F /* Project object */;
 }
