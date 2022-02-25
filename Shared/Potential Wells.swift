@@ -29,7 +29,7 @@ class PotentialWells: ObservableObject {
         switch potentialType {
         case "Square Well":
             
-                //startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+                startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
                 
             for i in stride(from: xMin+xStep, through: xMax-xStep, by: xStep) {
                 
@@ -42,12 +42,12 @@ class PotentialWells: ObservableObject {
                 contentArray.append(dataPoint)
             }
                 
-                //finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+                finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
 
         case "Linear Well":
             
-            //startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
             for i in stride(from: xMin+xStep, through: xMax-xStep, by: xStep) {
                 
@@ -62,11 +62,11 @@ class PotentialWells: ObservableObject {
                 
             }
             
-            //finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
         case "Parabolic Well":
             
-            //startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
             for i in stride(from: xMin+xStep, through: xMax-xStep, by: xStep) {
                 
@@ -80,11 +80,11 @@ class PotentialWells: ObservableObject {
 
             }
             
-            //finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
         case "Square + Linear Well":
             
-            //startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
             for i in stride(from: xMin+xStep, to: (xMax+xMin)/2.0, by: xStep) {
                 
@@ -110,12 +110,12 @@ class PotentialWells: ObservableObject {
                 
             }
             
-            //finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
             
         case "Square Barrier":
             
-            //startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
             for i in stride(from: xMin+xStep, to: xMin + (xMax-xMin)*0.4, by: xStep) {
                 
@@ -152,7 +152,7 @@ class PotentialWells: ObservableObject {
                 contentArray.append(dataPoint)
             }
             
-            //finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
         case "Triangle Barrier":
             
@@ -160,7 +160,7 @@ class PotentialWells: ObservableObject {
             var dataPoint: (X: Double, Y: Double)
             var count = 0
             
-            //startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
             for i in stride(from: xMin+xStep, to: xMin + (xMax-xMin)*0.4, by: xStep) {
                 
@@ -208,7 +208,7 @@ class PotentialWells: ObservableObject {
                 contentArray.append(dataPoint)
             }
             
-            //finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
         
         case "Coupled Parabolic Well":
             
@@ -216,7 +216,7 @@ class PotentialWells: ObservableObject {
             var dataPoint: (X: Double, Y: Double)
             var count = 0
             
-            //startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
             for i in stride(from: xMin+xStep, to: xMin + (xMax-xMin)*0.5, by: xStep) {
                 
@@ -242,14 +242,14 @@ class PotentialWells: ObservableObject {
                 
             }
             
-            //finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
         
         case "Coupled Square Well + Field":
             
             //var dataPoint: plotDataType = [:]
             var dataPoint: (X: Double, Y: Double)
             
-            //startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
             
             for i in stride(from: xMin+xStep, to: xMin + (xMax-xMin)*0.4, by: xStep) {
                 
@@ -281,7 +281,7 @@ class PotentialWells: ObservableObject {
             }
             
             
-            //finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+            finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
         
         case "Harmonic Oscillator":
             
@@ -293,7 +293,7 @@ class PotentialWells: ObservableObject {
             let xMaxHO = 20.0
             let xStepHO = 0.001
             
-            //startPotential(xMin: xMinHO+xMaxHO, xMax: xMaxHO+xMaxHO, xStep: xStepHO)
+            startPotential(xMin: xMinHO+xMaxHO, xMax: xMaxHO+xMaxHO, xStep: xStepHO)
             
             for i in stride(from: xMinHO+xStepHO, through: xMaxHO-xStepHO, by: xStepHO) {
                 
@@ -306,7 +306,7 @@ class PotentialWells: ObservableObject {
                 contentArray.append(dataPoint)
             }
             
-            //finishPotential(xMin: xMinHO+xMaxHO, xMax: xMaxHO+xMaxHO, xStep: xStepHO)
+            finishPotential(xMin: xMinHO+xMaxHO, xMax: xMaxHO+xMaxHO, xStep: xStepHO)
 /*
         case "Kronig - Penney":
             
@@ -330,7 +330,7 @@ class PotentialWells: ObservableObject {
             let xMaxKP = boxLength
             
             
-            //startPotential(xMin: xMinKP, xMax: xMaxKP, xStep: xStepKP)
+            startPotential(xMin: xMinKP, xMax: xMaxKP, xStep: xStepKP)
             
             for i in stride(from: xMinKP+xStepKP, through: xMaxKP-xStepKP, by: xStepKP) {
                 
@@ -656,4 +656,17 @@ class PotentialWells: ObservableObject {
         
     }
 */
+    
+    func startPotential(xMin: Double, xMax: Double, xStep: Double) {
+        potential.oneDPotentialXArray.append(xMin)
+        potential.oneDPotentialYArray.append(1000000.0)
+    }
+    
+    
+    func finishPotential(xMin: Double, xMax: Double, xStep: Double) {
+        potential.oneDPotentialXArray.append(xMax)
+        potential.oneDPotentialYArray.append(1000000.0)
+    }
+    
+    
 }
