@@ -14,6 +14,7 @@ class OneDSchrodinger: ObservableObject {
     @Published var oneDPotentialYArray: [Double] = []
     
     
+    
     /*
      2         2
  hbar   partial
@@ -25,10 +26,14 @@ class OneDSchrodinger: ObservableObject {
         
     }
     
+    func solveWaveFunction () {
+        
+    }
     
+/*
     func minX(minArray: [Double]) -> Double {
         var minX: Double = 0.0
-        
+    
         return minX
     }
     
@@ -49,5 +54,6 @@ class OneDSchrodinger: ObservableObject {
         
         return maxY
     }
-    
+*/
+ 
 }

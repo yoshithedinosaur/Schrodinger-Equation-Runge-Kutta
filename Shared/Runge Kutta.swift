@@ -9,6 +9,10 @@ import Foundation
 
 class RungeKutta: ObservableObject {
     
+    func RK1 () {
+        
+    }
+    
     func RK4 () {
         
     }

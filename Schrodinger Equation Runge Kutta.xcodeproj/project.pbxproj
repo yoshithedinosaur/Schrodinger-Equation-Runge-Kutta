@@ -24,6 +24,19 @@
 		A3FA432827C9732D00ADDF0F /* 1D Schrodinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA432727C9732D00ADDF0F /* 1D Schrodinger.swift */; };
 		A3FA432927C9732D00ADDF0F /* 1D Schrodinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA432727C9732D00ADDF0F /* 1D Schrodinger.swift */; };
 		A3FA432C27C98B8500ADDF0F /* CorePlot in Frameworks */ = {isa = PBXBuildFile; productRef = A3FA432B27C98B8500ADDF0F /* CorePlot */; };
+		A3FA432E27D1578200ADDF0F /* PlotDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA432D27D1578100ADDF0F /* PlotDataClass.swift */; };
+		A3FA432F27D1578200ADDF0F /* PlotDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA432D27D1578100ADDF0F /* PlotDataClass.swift */; };
+		A3FA433127D1583D00ADDF0F /* CorePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA433027D1583D00ADDF0F /* CorePlot.swift */; };
+		A3FA433227D1583D00ADDF0F /* CorePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA433027D1583D00ADDF0F /* CorePlot.swift */; };
+		A3FA433427D166FB00ADDF0F /* PlotClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA433327D166FB00ADDF0F /* PlotClass.swift */; };
+		A3FA433527D166FB00ADDF0F /* PlotClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA433327D166FB00ADDF0F /* PlotClass.swift */; };
+		A3FA433827D1675500ADDF0F /* CorePlot in Frameworks */ = {isa = PBXBuildFile; productRef = A3FA433727D1675500ADDF0F /* CorePlot */; };
+		A3FA433A27D2B9CF00ADDF0F /* ChangingPlotParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA433927D2B9CF00ADDF0F /* ChangingPlotParameters.swift */; };
+		A3FA433B27D2B9CF00ADDF0F /* ChangingPlotParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA433927D2B9CF00ADDF0F /* ChangingPlotParameters.swift */; };
+		A3FA433D27D2BA1B00ADDF0F /* CalculatePlotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA433C27D2BA1B00ADDF0F /* CalculatePlotData.swift */; };
+		A3FA433E27D2BA1B00ADDF0F /* CalculatePlotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA433C27D2BA1B00ADDF0F /* CalculatePlotData.swift */; };
+		A3FA434027D2C22C00ADDF0F /* PlotPotentialWells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA433F27D2C22C00ADDF0F /* PlotPotentialWells.swift */; };
+		A3FA434127D2C22C00ADDF0F /* PlotPotentialWells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA433F27D2C22C00ADDF0F /* PlotPotentialWells.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +72,12 @@
 		A3FA432127C96D9E00ADDF0F /* Potential Wells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Potential Wells.swift"; sourceTree = "<group>"; };
 		A3FA432427C96E6300ADDF0F /* Runge Kutta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Runge Kutta.swift"; sourceTree = "<group>"; };
 		A3FA432727C9732D00ADDF0F /* 1D Schrodinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "1D Schrodinger.swift"; sourceTree = "<group>"; };
+		A3FA432D27D1578100ADDF0F /* PlotDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotDataClass.swift; sourceTree = "<group>"; };
+		A3FA433027D1583D00ADDF0F /* CorePlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorePlot.swift; sourceTree = "<group>"; };
+		A3FA433327D166FB00ADDF0F /* PlotClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotClass.swift; sourceTree = "<group>"; };
+		A3FA433927D2B9CF00ADDF0F /* ChangingPlotParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangingPlotParameters.swift; sourceTree = "<group>"; };
+		A3FA433C27D2BA1B00ADDF0F /* CalculatePlotData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatePlotData.swift; sourceTree = "<group>"; };
+		A3FA433F27D2C22C00ADDF0F /* PlotPotentialWells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotPotentialWells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3FA433827D1675500ADDF0F /* CorePlot in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +122,7 @@
 				A3FA42FC27C96D6200ADDF0F /* Tests iOS */,
 				A3FA430827C96D6200ADDF0F /* Tests macOS */,
 				A3FA42ED27C96D6200ADDF0F /* Products */,
+				A3FA433627D1675500ADDF0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,7 +133,13 @@
 				A3FA42E627C96D5C00ADDF0F /* ContentView.swift */,
 				A3FA432127C96D9E00ADDF0F /* Potential Wells.swift */,
 				A3FA432427C96E6300ADDF0F /* Runge Kutta.swift */,
+				A3FA433327D166FB00ADDF0F /* PlotClass.swift */,
+				A3FA433027D1583D00ADDF0F /* CorePlot.swift */,
+				A3FA433C27D2BA1B00ADDF0F /* CalculatePlotData.swift */,
+				A3FA433F27D2C22C00ADDF0F /* PlotPotentialWells.swift */,
 				A3FA432727C9732D00ADDF0F /* 1D Schrodinger.swift */,
+				A3FA433927D2B9CF00ADDF0F /* ChangingPlotParameters.swift */,
+				A3FA432D27D1578100ADDF0F /* PlotDataClass.swift */,
 				A3FA42E727C96D6200ADDF0F /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -155,6 +182,13 @@
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
+		A3FA433627D1675500ADDF0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,6 +225,9 @@
 			dependencies = (
 			);
 			name = "Schrodinger Equation Runge Kutta (macOS)";
+			packageProductDependencies = (
+				A3FA433727D1675500ADDF0F /* CorePlot */,
+			);
 			productName = "Schrodinger Equation Runge Kutta (macOS)";
 			productReference = A3FA42F227C96D6200ADDF0F /* Schrodinger Equation Runge Kutta.app */;
 			productType = "com.apple.product-type.application";
@@ -320,10 +357,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3FA432227C96D9E00ADDF0F /* Potential Wells.swift in Sources */,
+				A3FA432E27D1578200ADDF0F /* PlotDataClass.swift in Sources */,
 				A3FA432827C9732D00ADDF0F /* 1D Schrodinger.swift in Sources */,
+				A3FA433D27D2BA1B00ADDF0F /* CalculatePlotData.swift in Sources */,
+				A3FA433127D1583D00ADDF0F /* CorePlot.swift in Sources */,
 				A3FA430F27C96D6200ADDF0F /* ContentView.swift in Sources */,
 				A3FA432527C96E6300ADDF0F /* Runge Kutta.swift in Sources */,
+				A3FA434027D2C22C00ADDF0F /* PlotPotentialWells.swift in Sources */,
 				A3FA430D27C96D6200ADDF0F /* Schrodinger_Equation_Runge_KuttaApp.swift in Sources */,
+				A3FA433427D166FB00ADDF0F /* PlotClass.swift in Sources */,
+				A3FA433A27D2B9CF00ADDF0F /* ChangingPlotParameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,10 +375,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3FA432327C96D9E00ADDF0F /* Potential Wells.swift in Sources */,
+				A3FA432F27D1578200ADDF0F /* PlotDataClass.swift in Sources */,
 				A3FA432927C9732D00ADDF0F /* 1D Schrodinger.swift in Sources */,
+				A3FA433E27D2BA1B00ADDF0F /* CalculatePlotData.swift in Sources */,
+				A3FA433227D1583D00ADDF0F /* CorePlot.swift in Sources */,
 				A3FA431027C96D6200ADDF0F /* ContentView.swift in Sources */,
 				A3FA432627C96E6300ADDF0F /* Runge Kutta.swift in Sources */,
+				A3FA434127D2C22C00ADDF0F /* PlotPotentialWells.swift in Sources */,
 				A3FA430E27C96D6200ADDF0F /* Schrodinger_Equation_Runge_KuttaApp.swift in Sources */,
+				A3FA433527D166FB00ADDF0F /* PlotClass.swift in Sources */,
+				A3FA433B27D2B9CF00ADDF0F /* ChangingPlotParameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +792,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		A3FA432B27C98B8500ADDF0F /* CorePlot */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3FA432A27C98B8500ADDF0F /* XCRemoteSwiftPackageReference "core-plot" */;
+			productName = CorePlot;
+		};
+		A3FA433727D1675500ADDF0F /* CorePlot */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A3FA432A27C98B8500ADDF0F /* XCRemoteSwiftPackageReference "core-plot" */;
 			productName = CorePlot;
