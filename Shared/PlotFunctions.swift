@@ -17,7 +17,7 @@ class PlotPotentials: ObservableObject {
     //temp parameter declaration
     let xMin = 0.0
     let xMax = 10.0
-    let xStep = 0.05
+    let xStep = 0.01
     
     @MainActor func plotWells(potentialType: String) {
         
@@ -50,19 +50,20 @@ class PlotWaveFunctions: ObservableObject {
     var plotDataModel: PlotDataClass? = nil
     
     let waveFunction = OneDSchrodinger()
+    let potentialWells = PotentialWells()
     //let potentialWells = PotentialWells()
     var yPotentialWellData: [Double] = []
     
     //temp parameter declaration
     let xMin = 0.0
     let xMax = 10.0
-    let xStep = 0.05
+    let xStep = 0.01
     
     @MainActor func plotWaveFunction(potentialType: String, energyVal: Double) {
         
         //set the Plot Parameters
-        plotDataModel!.changingPlotParameters.yMax = 10.0
-        plotDataModel!.changingPlotParameters.yMin = 0.0
+        plotDataModel!.changingPlotParameters.yMax = 1.0
+        plotDataModel!.changingPlotParameters.yMin = -1.0
         plotDataModel!.changingPlotParameters.xMax = xMax
         plotDataModel!.changingPlotParameters.xMin = xMin
         plotDataModel!.changingPlotParameters.xLabel = "x"
@@ -73,8 +74,12 @@ class PlotWaveFunctions: ObservableObject {
         plotDataModel!.zeroData()
         var plotData :[plotDataType] =  []
         
-        //potentialWells.getPotential(potentialType: potentialType, xMin: xMin, xMax: xMax, xStep: xStep)
-        yPotentialWellData = waveFunction.oneDPotentialYArray
+        let potentials = potentialWells.getPotential(potentialType: potentialType, xMin: xMin, xMax: xMax, xStep: xStep/2.0)
+        
+        yPotentialWellData.removeAll()
+        for i in 0...potentials.endIndex-1 {
+            yPotentialWellData.append(potentials[i][.Y]!)
+        }
         
         //makes wave function data
         let dataPoints = waveFunction.RK4(potentialsVals: yPotentialWellData, xMin: xMin, xMax: xMax, xStep: xStep, initialPsi: 0.0, energy: energyVal)
@@ -98,7 +103,7 @@ class PlotFunctional: ObservableObject {
     //temp parameter declaration
     let xMin = 0.0
     let xMax = 10.0
-    let xStep = 0.05
+    let xStep = 0.01
     
     @MainActor func plotFunctional(potentialType: String) {
         
@@ -115,7 +120,7 @@ class PlotFunctional: ObservableObject {
         plotDataModel!.zeroData()
         var plotData :[plotDataType] =  []
         
-        let potentials = potentialWells.getPotential(potentialType: potentialType, xMin: xMin, xMax: xMax, xStep: xStep)
+        let potentials = potentialWells.getPotential(potentialType: potentialType, xMin: xMin, xMax: xMax, xStep: xStep/2.0)
         
         yPotentialWellData.removeAll()
         for i in 0...potentials.endIndex-1 {

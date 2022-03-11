@@ -277,7 +277,7 @@ class PotentialWells: ObservableObject {
             for i in 1 ..< (potential.oneDPotentialXArray.count) {
                 
                 potential.oneDPotentialYArray[i] += ((potential.oneDPotentialXArray[i]-xMin)*4.0*0.1)
-                dataPoint = [.X: potential.oneDPotentialXArray[count-1], .Y: potential.oneDPotentialYArray[count-1]]
+                dataPoint = [.X: potential.oneDPotentialXArray[i-1], .Y: potential.oneDPotentialYArray[i-1]]
                 //dataPoint = (X: potential.oneDPotentialXArray[count-1], Y: potential.oneDPotentialYArray[count-1])
                 contentArray.append(dataPoint)
             }
@@ -309,7 +309,7 @@ class PotentialWells: ObservableObject {
             }
             
             finishPotential(xMin: xMinHO+xMaxHO, xMax: xMaxHO+xMaxHO, xStep: xStepHO)
-/*
+
         case "Kronig - Penney":
             
             var dataPoint: plotDataType = [:]
@@ -389,18 +389,18 @@ class PotentialWells: ObservableObject {
             //dataPoint = (X: xMax+xStep, Y: 5000000.0)
             contentArray.append(dataPoint)
             
-            let xMin = potential.minX(minArray: potential.oneDPotentialXArray)
-            let xMax = potential.maxX(maxArray: potential.oneDPotentialXArray)
-            let yMin = potential.minY(minArray: potential.oneDPotentialYArray)
-            var yMax = potential.maxY(maxArray: potential.oneDPotentialYArray)
+//            let xMin = potential.minX(minArray: potential.oneDPotentialXArray)
+//            let xMax = potential.maxX(maxArray: potential.oneDPotentialXArray)
+//            let yMin = potential.minY(minArray: potential.oneDPotentialYArray)
+//            var yMax = potential.maxY(maxArray: potential.oneDPotentialYArray)
             
-            if yMax > 500 { yMax = 10}
+//            if yMax > 500 { yMax = 10}
             
-            makePlot(xLabel: "x Å", yLabel: "Potential V", xMin: (xMin - 1.0), xMax: (xMax + 1.0), yMin: yMin-1.2, yMax: yMax+0.2)
+//            makePlot(xLabel: "x Å", yLabel: "Potential V", xMin: (xMin - 1.0), xMax: (xMax + 1.0), yMin: yMin-1.2, yMax: yMax+0.2)
             
-            contentArray.removeAll()
+//            contentArray.removeAll()
             
-        case "Variable Kronig - Penney":
+/*        case "Variable Kronig - Penney":
             
             /****  Get Parameters ****/
             

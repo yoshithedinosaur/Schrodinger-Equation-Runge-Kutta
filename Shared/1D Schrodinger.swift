@@ -55,7 +55,7 @@ class OneDSchrodinger: ObservableObject {
                 var previousPsiPrime = psiPrime
                 var previousPsi = psi
             
-                psiDoublePrime = 2/hbar2overm * (potential - energy) * psi
+                psiDoublePrime = 2.0/hbar2overm * (potential - energy) * psi
                 psiPrime = previousPsiPrime + xStep * psiDoublePrime
                 psi = previousPsi + xStep * previousPsiPrime
             
@@ -92,9 +92,11 @@ class OneDSchrodinger: ObservableObject {
         contentArray.removeAll()
         var xVal = xMin
         var psi = initialPsi
-        var psiPrime = 1.0 //Start with a guess for slope; normalize later
+        var psiPrime = 0.1 //Start with a guess for slope; normalize later
         var psiDoublePrime = 0.0
         var potential = 0.0 //eventually pull from potential well
+        var nextPotential = 0.0
+        var nextNextPotential = 0.0
         var count: Int = 0
         var k1 = 0.0
         var k2 = 0.0
@@ -104,36 +106,61 @@ class OneDSchrodinger: ObservableObject {
         var k2Prime = 0.0
         var k3Prime = 0.0
         var k4Prime = 0.0
+        var previousPsiPrime = 1.0
+        var previousPsi = 0.0
+        var normalization = 0.0
         
         dataPoint = [.X: xVal, .Y: psi] //gives initial values first
         
         
-        
         for _ in stride(from: xMin, through: xMax, by: xStep) {
-            if (count <= 1 || count == potentialsVals.endIndex) { potential = 0.0 } else {
-            potential = potentialsVals[count-1]
+            if (count <= 0 || count == potentialsVals.count/2 ) { potential = 0.0 } else {
+                potential = potentialsVals[2*count]
+                nextPotential = potentialsVals[2*count+1]
+                if (count < potentialsVals.count/2 - 1) {
+                    nextNextPotential = potentialsVals[2*count+2]
+                } else { nextNextPotential = 0.0}
             }
-            var previousPsiPrime = psiPrime
-            var previousPsi = psi
-            psiDoublePrime = 2/hbar2overm * (potential - energy) * psi
+            previousPsiPrime = psiPrime
+            previousPsi = psi
             
-            k1Prime = psiDoublePrime * previousPsi
+            psiDoublePrime = 2.0/hbar2overm * (potential - energy) * previousPsi
+            
+            k1Prime = psiDoublePrime
             k1 = previousPsiPrime
-            k2Prime = psiDoublePrime * (previousPsiPrime + xStep * k1Prime/2)
-            k2 = previousPsiPrime + xStep * k1/2
-            k3Prime = psiDoublePrime * (previousPsiPrime + xStep * k2Prime/2)
-            k3 = previousPsiPrime + xStep * k2/2
-            k4Prime = psiDoublePrime * (previousPsiPrime + xStep * k3Prime)
+            
+            psiDoublePrime = 2.0/hbar2overm * (nextPotential - energy) * (previousPsi + xStep * k1Prime/2.0)
+            
+            k2Prime = psiDoublePrime
+            k2 = previousPsiPrime + xStep * k1/2.0
+            
+            psiDoublePrime = 2.0/hbar2overm * (nextPotential - energy) * (previousPsi + xStep * k2Prime/2.0)
+            
+            k3Prime = psiDoublePrime
+            k3 = previousPsiPrime + xStep * k2/2.0
+            
+            psiDoublePrime = 2.0/hbar2overm * (nextNextPotential - energy) * (previousPsi + xStep * k3Prime)
+            
+            k4Prime = psiDoublePrime
             k4 = previousPsiPrime + xStep * k3
-            psiPrime = previousPsiPrime + xStep * (k1Prime + 2*k2Prime + 2*k3Prime +k4Prime)/6
-            psi = previousPsi + xStep * (k1 + 2*k2 + 2*k3 + k4)/6
-        
+            
+            psiPrime = previousPsiPrime + xStep * (k1Prime + 2.0*k2Prime + 2.0*k3Prime + k4Prime)/6.0
+            psi = previousPsi + xStep * (k1 + 2.0*k2 + 2.0*k3 + k4)/6.0
+            
+            normalization += pow(psi,2)*xStep
+            
             xVal += xStep //moving on to the next x value
-            print("\(potentialsVals.endIndex)")
+            //print("\(potential)")
             dataPoint = [.X: xVal, .Y: psi]
             contentArray.append(dataPoint)
             count += 1
         }
+        
+        for i in 0..<contentArray.count {
+            contentArray[i][.Y] = contentArray[i][.Y]!/sqrt(normalization)
+        }
+        
+        psiEndPoints.append( (energyPoint: energy, psiPoint: psi/sqrt(normalization)) )
         
         return contentArray
     }
@@ -143,7 +170,7 @@ class OneDSchrodinger: ObservableObject {
         var functionalDataPoint: plotDataType = [:]
         functionalContentArray.removeAll()
         
-        for energy in stride(from: 0.0, to: 100, by: 0.5) {
+        for energy in stride(from: 0.0, to: 100, by: 0.1) {
             RK4(potentialsVals: potentialsVals, xMin: xMin, xMax: xMax, xStep: xStep, initialPsi: initialPsi, energy: energy)
             
             functionalDataPoint = [.X: psiEndPoints[psiEndPoints.endIndex-1].energyPoint, .Y: psiEndPoints[psiEndPoints.endIndex-1].psiPoint]
