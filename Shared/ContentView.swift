@@ -13,24 +13,24 @@ typealias plotDataType = [CPTScatterPlotField : Double]
 struct ContentView: View {
     @ObservedObject var plotDataModel = PlotDataClass(fromLine: true)
     @ObservedObject private var potentialPlotter = PlotPotentials()
+    @ObservedObject private var waveFunctionPlotter = PlotWaveFunctions()
+    @ObservedObject private var functionalPlotter = PlotFunctional()
     @ObservedObject private var potentialWells = PotentialWells()
+    @ObservedObject private var oneDSchrodinger = OneDSchrodinger()
     
     @State private var potentialSelect = "Square Well"
     @State private var viewSelect = "Potential"
     @State var eigenEnergyView = ""
-    @State var energyVal = "0"
     
     //Choices set up
-    let potentialsChoices = ["Square Well", "Linear Well", "Parabolic Well", "Square + Linear Well", "Square Barrier", "Triangle Barrier", "Coupled Parabolic Well", "Coupled Square Well + Field", "Harmonic Oscillator"/*, "Kronig - Penney", "Variable Kronig - Penney", "KP2-a"*/]
-    let viewChoices = ["Potential", "Functional", "Wavefunction"]
+    let potentialsChoices = ["Square Well", "Linear Well", "Parabolic Well", "Square + Linear Well", "Square Barrier", "Triangle Barrier", "Coupled Parabolic Well", /*"Coupled Square Well + Field", "Harmonic Oscillator", "Kronig - Penney", "Variable Kronig - Penney", "KP2-a"*/]
+    let viewChoices = ["Potential", "Functional", "Wave Function"]
     var eigenEnergyList: [String] = []
     
     var body: some View {
         HStack{
             VStack {
-                Text("Energy")
-                TextField("", text: $energyVal)
-                
+
                 Text("Choose Potential Well")
                 Picker("", selection: $potentialSelect) {
                     ForEach(potentialsChoices, id: \.self) {
@@ -44,6 +44,9 @@ struct ContentView: View {
                         Text($0)
                     }
                 }
+                /*.onReceive([self.viewSelect].publisher.first()) { potentialSelect in
+                    plotPotentialWells(potentialType: potentialSelect)
+                }*/ //Figure out later
                 
                 Text("Eigen Energies")
                 Picker("", selection: $eigenEnergyView) {
@@ -66,11 +69,28 @@ struct ContentView: View {
                 Divider()
                             
                 HStack{
-                    Button("Plot a test square well", action: {self.plotPotentialWells(potentialType: potentialSelect)} )
+                    Button("Plot Selected View", action: {self.plotButton(viewChoice: viewSelect, potentialType: potentialSelect)} )
                         .padding()
                                 
                 }
             }
+        }
+    }
+    
+    func plotButton (viewChoice: String, potentialType: String) {
+        switch viewChoice {
+        case "Potential":
+            plotPotentialWells(potentialType: potentialType)
+            
+        case "Functional":
+            plotFunctional(potentialType: potentialType)
+            
+        case "Wave Function":
+            if (eigenEnergyView != "") {
+            plotWaveFuncion(potentialType: potentialType, eigenEnergyVal: eigenEnergyView)
+            }
+        default:
+            print("Don't know how you got here but ok.")
         }
     }
     
@@ -81,6 +101,22 @@ struct ContentView: View {
         //Calculate the new plotting data and place in the plotDataModel
         potentialPlotter.plotWells(potentialType: potentialType)
         
+    }
+    
+    func plotWaveFuncion(potentialType: String, eigenEnergyVal: String) {
+        
+        //pass the plotDataModel to the waveFunctionPlotter
+        waveFunctionPlotter.plotDataModel = self.plotDataModel
+        //Calculate the new plotting data and place in the plotDataModel
+        waveFunctionPlotter.plotWaveFunction(potentialType: potentialType, energyVal: Double(eigenEnergyView)!)
+        
+    }
+    
+    func plotFunctional(potentialType: String) {
+        //pass the plotDataModel to the waveFunctionPlotter
+        functionalPlotter.plotDataModel = self.plotDataModel
+        //Calculate the new plotting data and place in the plotDataModel
+        functionalPlotter.plotFunctional(potentialType: potentialType)
     }
     
 }
